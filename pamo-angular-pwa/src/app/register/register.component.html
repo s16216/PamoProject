@@ -1,1 +1,47 @@
-<p>register works!</p>
+
+<div class="form-body">
+  <div class="row">
+    <div class="form-holder">
+      <div class="form-content">
+        <div class="form-items">
+          <h3>Register Today</h3>
+          <p>Fill in the data below.</p>
+          <form class="requires-validation" (submit)="onSubmit()" novalidate>
+
+            <div class="col-md-12 mb-3">
+              <input class="form-control" type="text" name="username" [(ngModel)]="user.username" placeholder="Username" required>
+            </div>
+
+            <div class="col-md-12 mb-3">
+              <input class="form-control" type="text" name="firstName" [(ngModel)]="user.firstName" placeholder="First Name" required>
+            </div>
+
+            <div class="col-md-12 mb-3">
+              <input class="form-control" type="text" name="lastName" [(ngModel)]="user.lastName" placeholder="Last Name" required>
+            </div>
+
+            <div class="col-md-12 mb-3">
+              <input class="form-control" type="email" name="email" [(ngModel)]="user.email" placeholder="E-mail Address" required>
+            </div>
+
+            <div class="col-md-12 mb-3">
+              <input class="form-control" type="tel" name="phoneNumber" [(ngModel)]="user.phoneNumber" placeholder="Phone Number" required>
+            </div>
+
+            <div class="col-md-12 mb-3">
+              <input class="form-control" type="password" name="password" [(ngModel)]="user.password" placeholder="Password" required>
+            </div>
+
+            <!-- Additional fields can be added as needed -->
+
+            <div class="form-button mt-3">
+              <button type="submit" class="btn btn-primary">Register</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+

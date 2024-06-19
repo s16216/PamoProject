@@ -1,0 +1,91 @@
+#my-first ul {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #1c1c1e;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+}
+
+#my-first .logotype a {
+  padding: 0 8px;
+  font-size: 2rem; /* Larger font size */
+  text-decoration: none;
+  color: whitesmoke;
+  font-weight: bold; /* Bold text */
+}
+
+#my-first .burger {
+  padding: 0 10px;
+  border-left: 1px solid #333;
+  display: none;
+  cursor: pointer;
+}
+
+#my-first .burger i {
+  color: whitesmoke;
+  line-height: 60px;
+}
+
+@media (max-width: 768px) {
+  #my-first .burger {
+    display: block;
+  }
+}
+
+#my-first .menu {
+  display: flex;
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+  #my-first .menu {
+    display: none;
+  }
+
+  #my-first .menu.is-open {
+    display: block;
+    position: absolute;
+    top: 62px;
+    background: #1c1c1e;
+    width: 100%;
+    border-radius: 0 0 10px 10px;
+  }
+
+  #my-first .menu.is-open .menu-item {
+    border-bottom: 1px solid #333;
+  }
+}
+
+#my-first .menu .menu-item {
+  padding: 0 10px;
+  height: 60px;
+  line-height: 60px;
+  text-decoration: none;
+  display: block;
+  text-transform: uppercase;
+  font-size: 1.2rem; /* Larger font size */
+  font-weight: bold; /* Bold text */
+  color: whitesmoke;
+  border-radius: 5px;
+}
+
+#my-first .menu .menu-item:hover {
+  background: #333;
+  color: #fff;
+}
+
+/* Additional styles for the title similar to the image */
+#my-first .title {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #fff;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+#my-first .title span {
+  color: whitesmoke;
+}
