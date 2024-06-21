@@ -1,24 +1,25 @@
 <nav id="my-first">
   <ul>
     <li class="logotype">
-      <a href="#">My Rme Site</a>
+      <a routerLink="#">My Rme Site</a>
     </li>
     <li class="burger" (click)="toggleMenu()">
       <i class="material-icons">{{ isMenuOpen ? "close" : "menu" }}</i>
+    </li>
+    <li *ngIf="(accountService.currentUser$ | async)" class="menu" [class.is-open]="isMenuOpen">
+      <a routerLink="/" class="menu-item" routerLinkActive="active" (click)="closeMenu()">Home</a>
+      <a routerLink="/members" class="menu-item" routerLinkActive="active" (click)="closeMenu()">Members</a>
+      <a routerLink="/" class="menu-item" (click)="closeMenu()">About</a>
+      <a routerLink="/" class="menu-item" (click)="closeMenu()">Contact</a>
+      <a routerLink="/logout" class="menu-item" routerLinkActive="active" (click)="logout()">Logout</a>
     </li>
     <li *ngIf="!(accountService.currentUser$ | async)" class="menu" [class.is-open]="isMenuOpen">
       <a routerLink="/" class="menu-item" routerLinkActive="active" (click)="closeMenu()">Home</a>
       <a routerLink="/login" class="menu-item" routerLinkActive="active" (click)="closeMenu()">Login</a>
       <a routerLink="/register" class="menu-item" routerLinkActive="active" (click)="closeMenu()">Register</a>
-      <a href="#" class="menu-item" (click)="closeMenu()">About</a>
-      <a href="#" class="menu-item" (click)="closeMenu()">Contact</a>
+      <a routerLink="#" class="menu-item" (click)="closeMenu()">About</a>
+      <a routerLink="#" class="menu-item" (click)="closeMenu()">Contact</a>
     </li>
-      <li *ngIf="(accountService.currentUser$ | async)" class="menu" [class.is-open]="isMenuOpen">
-        <a routerLink="/" class="menu-item" routerLinkActive="active" (click)="closeMenu()">Home</a>
-        <a routerLink="/members" class="menu-item" routerLinkActive="active" (click)="closeMenu()">Members</a>
-        <a href="#" class="menu-item" (click)="closeMenu()">About</a>
-        <a href="#" class="menu-item" (click)="closeMenu()">Contact</a>
-        <a routerLink="/logout" class="menu-item" routerLinkActive="active" (click)="logout()">Logout</a>
-      </li>
+
   </ul>
 </nav>

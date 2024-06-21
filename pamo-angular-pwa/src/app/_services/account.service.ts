@@ -3,13 +3,14 @@ import {HttpClient, HttpHeaders} from "@angular/common/http";
 import { BehaviorSubject, Observable } from "rxjs";
 import { map } from "rxjs/operators";
 import {User} from "../_model/user";
+import {environment} from "../../environments/environment";
 
 @Injectable({
   providedIn: 'root'
 })
 export class AccountService {
 
-  baseUrl: string = 'http://localhost:5000/api/';
+  baseUrl: string = environment.baseUrl;
   private currentUserSource = new BehaviorSubject<User | null>(null)
   currentUser$ = this.currentUserSource.asObservable();
 
@@ -27,10 +28,6 @@ export class AccountService {
         }
       })
     )
-  }
-
-  setCurrentUser(user: User) {
-    this.currentUserSource.next(user);
   }
 
   logout() {

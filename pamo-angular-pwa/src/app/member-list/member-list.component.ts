@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
+import {environment} from "../../environments/environment";
 
 
 @Component({
@@ -10,6 +11,8 @@ import {HttpClient} from "@angular/common/http";
 export class MemberListComponent implements OnInit{
 
   users: any;
+  memberUrl: string = environment.baseUrl + 'Account/GetAllUsers';
+
 
 
   ngOnInit(): void {
@@ -20,7 +23,8 @@ export class MemberListComponent implements OnInit{
 
 
   getUsers() {
-    this.httpClient.get('https://localhost:5001/api/Account/GetAllUsers').subscribe({
+    //this.httpClient.get('https://myrmesite-dev.azurewebsites.net/api/Account/GetAllUsers').subscribe({
+    this.httpClient.get(this.memberUrl).subscribe({
       next: response => this.users = response,
       error: error => console.log(error),
       complete: () => console.log(this.users)

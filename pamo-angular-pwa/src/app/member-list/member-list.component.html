@@ -1,51 +1,22 @@
-<p>member-list works!</p>
 <div class="gaming-library">
   <div class="col-lg-12">
     <div class="heading-section">
-      <h4><em>Members</em> Library</h4>
+      <h4><em>Members</em></h4>
     </div>
-    <!--    <div class="item">-->
-    <!--      <ul>-->
-    <!--        <li><img src="assets/images/game-01.jpg" alt="" class="templatemo-item"></li>-->
-    <!--        <li><h4>Dota 2</h4><span>Sandbox</span></li>-->
-    <!--        <li><h4>Date Added</h4><span>24/08/2036</span></li>-->
-    <!--        <li><h4>Hours Played</h4><span>634 H 22 Mins</span></li>-->
-    <!--        <li><h4>Currently</h4><span>Downloaded</span></li>-->
-    <!--        <li><div class="main-border-button border-no-active"><a href="#">Donwloaded</a></div></li>-->
-    <!--      </ul>-->
-    <!--    </div>-->
-
-    <!--<ul>-->
-    <!--  <app-home></app-home>-->
-    <!--  <li *ngFor="let user of users">-->
-    <!--    {{user.userName}} {{user.email}}-->
-    <!--  </li>-->
-    <!--</ul>-->
     <div class="item" *ngFor="let user of users">
       <ul>
-        <li><img src="assets/images/game-02.jpg" alt="" class="templatemo-item"></li>
+        <li><img src="assets/images/character.jpg" alt="" class="templatemo-item"></li>
         <li><h4>User</h4><span>{{user.userName}}</span></li>
         <li><h4>Email</h4><span>{{user.email}}</span></li>
         <li><h4>Phone Number</h4><span>{{user.phoneNumber}}</span></li>
         <li><h4>Currently</h4><span>Downloaded</span></li>
-        <li><div class="main-border-button"><a href="#">Donwload</a></div></li>
+        <li><div class="main-border-button"><a routerLink="/member-detail" class="menu-item" routerLinkActive="active">Details</a></div></li>
       </ul>
     </div>
-    <!--    <div class="item last-item">-->
-    <!--      <ul>-->
-    <!--        <li><img src="assets/images/game-03.jpg" alt="" class="templatemo-item"></li>-->
-    <!--        <li><h4>CS-GO</h4><span>Sandbox</span></li>-->
-    <!--        <li><h4>Date Added</h4><span>21/04/2036</span></li>-->
-    <!--        <li><h4>Hours Played</h4><span>892 H 14 Mins</span></li>-->
-    <!--        <li><h4>Currently</h4><span>Downloaded</span></li>-->
-    <!--        <li><div class="main-border-button border-no-active"><a href="#">Donwloaded</a></div></li>-->
-    <!--      </ul>-->
-    <!--    </div>-->
-    <!--  </div>-->
     <div class="col-lg-12">
-      <div class="main-button">
-        <a href="profile.html">View Your Library</a>
-      </div>
+<!--      <div class="main-button">-->
+<!--        <a href="profile.html">View Your Library</a>-->
+<!--      </div>-->
     </div>
   </div>
 </div>
