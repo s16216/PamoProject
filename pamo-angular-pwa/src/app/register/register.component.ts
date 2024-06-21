@@ -30,8 +30,8 @@ export class RegisterComponent {
   constructor(private http: HttpClient) {}
 
   onSubmit() {
-    const apiUrl = 'https://myrmesite-dev.azurewebsites.net/api/Account/register';
-    //const apiUrl = 'http://localhost:5000/api/Account/register';
+    //const apiUrl = 'https://myrmesite-dev.azurewebsites.net/api/Account/register';
+    const apiUrl = 'http://localhost:5000/api/Account/register';
 
     // Make the HTTP POST request with user data
     this.http.post(apiUrl, this.user).subscribe(

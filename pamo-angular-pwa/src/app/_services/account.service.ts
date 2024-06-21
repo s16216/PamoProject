@@ -9,8 +9,8 @@ import {User} from "../_model/user";
 })
 export class AccountService {
 
-  baseUrl: string = 'https://myrmesite-dev.azurewebsites.net/api/';
-  //baseUrl: string = 'http://localhost:5000/api/';
+  //baseUrl: string = 'https://myrmesite-dev.azurewebsites.net/api/';
+  baseUrl: string = 'http://localhost:5000/api/';
   private currentUserSource = new BehaviorSubject<User | null>(null)
   currentUser$ = this.currentUserSource.asObservable();
 
@@ -28,10 +28,6 @@ export class AccountService {
         }
       })
     )
-  }
-
-  setCurrentUser(user: User) {
-    this.currentUserSource.next(user);
   }
 
   logout() {

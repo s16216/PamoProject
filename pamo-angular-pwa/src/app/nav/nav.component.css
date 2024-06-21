@@ -4,8 +4,8 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: #1c1c1e;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  background: #1e421e;
+  box-shadow: 0 2px 4px rgb(26, 33, 21);
   border-radius: 10px;
 }
 
@@ -19,7 +19,7 @@
 
 #my-first .burger {
   padding: 0 10px;
-  border-left: 1px solid #333;
+  border-left: 1px solid #1e421e;
   display: none;
   cursor: pointer;
 }
@@ -49,13 +49,13 @@
     display: block;
     position: absolute;
     top: 62px;
-    background: #1c1c1e;
+    background: #173317;
     width: 100%;
     border-radius: 0 0 10px 10px;
   }
 
   #my-first .menu.is-open .menu-item {
-    border-bottom: 1px solid #333;
+    border-bottom: 1px solid #1e421e;
   }
 }
 

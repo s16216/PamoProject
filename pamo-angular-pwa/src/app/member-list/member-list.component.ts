@@ -20,8 +20,8 @@ export class MemberListComponent implements OnInit{
 
 
   getUsers() {
-    this.httpClient.get('https://myrmesite-dev.azurewebsites.net/api/Account/GetAllUsers').subscribe({
-    //this.httpClient.get('https://localhost:5001/api/Account/GetAllUsers').subscribe({
+    //this.httpClient.get('https://myrmesite-dev.azurewebsites.net/api/Account/GetAllUsers').subscribe({
+    this.httpClient.get('https://localhost:5001/api/Account/GetAllUsers').subscribe({
       next: response => this.users = response,
       error: error => console.log(error),
       complete: () => console.log(this.users)
