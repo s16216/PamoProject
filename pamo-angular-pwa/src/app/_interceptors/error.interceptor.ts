@@ -34,11 +34,15 @@ export class ErrorInterceptor implements HttpInterceptor {
             case 400:
               this.handle400Error(error);
               break;
+              case 500:
+              this.handle500Error(error);
+              break;
             case 401:
               return this.handle401Error(request, next, error);
             case 404:
               this.router.navigateByUrl('/not-found');
               break;
+
             default:
               this.toastr.error('Something unexpected went wrong ' + error.message);
               break;
@@ -50,7 +54,22 @@ export class ErrorInterceptor implements HttpInterceptor {
   }
 
   private handle400Error(error: HttpErrorResponse): void {
-    this.toastr.error(error.error.message);
+    let errorMessage = 'Internal Server Error';
+
+    if (error.error) {
+      if (typeof error.error === 'string') {
+        errorMessage = error.error;
+      } else if (error.error.message) {
+        errorMessage = error.error.message;
+      } else if (error.message) {
+        errorMessage = error.message;
+      }
+    } else if (error.message) {
+      errorMessage = error.message;
+    }
+
+    this.toastr.error(errorMessage);
+    //this.router.navigateByUrl('/');
   }
 
   private handle401Error(
@@ -79,7 +98,7 @@ export class ErrorInterceptor implements HttpInterceptor {
           }),
           catchError((refreshError) => {
             this.isRefreshing = false;
-            this.toastr.error('Something unexpected went wrong during token refresh ' + refreshError.message);
+            this.toastr.error('Something unexpected went wrong during token refresh ' + refreshError);
             throw refreshError;
           })
         );
@@ -91,6 +110,25 @@ export class ErrorInterceptor implements HttpInterceptor {
       this.router.navigateByUrl('/login');
       return throwError(error);
     }
+  }
+
+  private handle500Error(error: HttpErrorResponse): void {
+    let errorMessage = 'Internal Server Error';
+
+    if (error.error) {
+      if (typeof error.error === 'string') {
+        errorMessage = error.error;
+      } else if (error.error.message) {
+        errorMessage = error.error.message;
+      } else if (error.message) {
+        errorMessage = error.message;
+      }
+    } else if (error.message) {
+      errorMessage = error.message;
+    }
+
+    this.toastr.error(errorMessage);
+    //this.router.navigateByUrl('/');
   }
 }
 

@@ -11,6 +11,9 @@
 
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import {environment} from "../../environments/environment";
+import {ToastrService} from "ngx-toastr";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-register',
@@ -27,21 +30,19 @@ export class RegisterComponent {
     password: ''
   };
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient,private toastr: ToastrService, private router: Router) {}
 
   onSubmit() {
-    //const apiUrl = 'https://myrmesite-dev.azurewebsites.net/api/Account/register';
-    const apiUrl = 'http://localhost:5000/api/Account/register';
+    const apiUrl: string = environment.baseUrl + 'Account/register';
 
     // Make the HTTP POST request with user data
     this.http.post(apiUrl, this.user).subscribe(
       (response) => {
-        console.log('Registration successful:', response);
-        // Handle success, e.g., redirect to a success page or show a success message
+        this.toastr.success('Potwierdz adres email');
       },
       (error) => {
         console.error('Registration failed:', error);
-        // Handle error, e.g., display an error message to the user
+        //this.toastr.error(error.error.message)
       }
     );
   }
