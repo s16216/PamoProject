@@ -9,6 +9,7 @@
     <li *ngIf="(accountService.currentUser$ | async)" class="menu" [class.is-open]="isMenuOpen">
       <a routerLink="/" class="menu-item" routerLinkActive="active" (click)="closeMenu()">Home</a>
       <a routerLink="/members" class="menu-item" routerLinkActive="active" (click)="closeMenu()">Members</a>
+      <a routerLink="/user/item" class="menu-item" routerLinkActive="active" (click)="closeMenu()">My Items</a>
       <a routerLink="/" class="menu-item" (click)="closeMenu()">About</a>
       <a routerLink="/" class="menu-item" (click)="closeMenu()">Contact</a>
       <a routerLink="/logout" class="menu-item" routerLinkActive="active" (click)="logout()">Logout</a>

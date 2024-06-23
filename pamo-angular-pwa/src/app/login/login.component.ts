@@ -24,5 +24,4 @@ export class LoginComponent implements OnInit{
       error: error => this.toastr.error(error.error.message)
     })
   }
-
 }

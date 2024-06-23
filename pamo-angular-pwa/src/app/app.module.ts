@@ -14,6 +14,12 @@ import { MemberListComponent } from './member-list/member-list.component';
 import {ErrorInterceptor} from "./_interceptors/error.interceptor";
 import {JwtInterceptor} from "./_interceptors/jwt.interceptor";
 import { MemberDetailComponent } from './member-detail/member-detail.component';
+import { ItemDetailComponent } from './item-detail/item-detail.component';
+import { ItemListComponent } from './item-list/item-list.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ItemEditComponent } from './item-edit/item-edit.component';
+import { UserItemListComponent } from './user-item-list/user-item-list.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -23,7 +29,11 @@ import { MemberDetailComponent } from './member-detail/member-detail.component';
     LoginComponent,
     RegisterComponent,
     MemberListComponent,
-    MemberDetailComponent
+    MemberDetailComponent,
+    ItemDetailComponent,
+    ItemListComponent,
+    ItemEditComponent,
+    UserItemListComponent
   ],
   imports: [
     BrowserModule,
@@ -40,7 +50,9 @@ import { MemberDetailComponent } from './member-detail/member-detail.component';
       // or after 30 seconds (whichever comes first).
       registrationStrategy: 'registerWhenStable:30000'
     }),
-    FormsModule
+    FormsModule,
+    NgbModule,
+    BrowserAnimationsModule
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true},
