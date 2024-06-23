@@ -88,11 +88,7 @@ img {
   overflow: hidden;
 }
 
-/*
----------------------------------------------
-Global Styles
----------------------------------------------
-*/
+
 html,
 body {
   background: #152315;
@@ -198,11 +194,6 @@ section {
   text-decoration: underline;
 }
 
-/*
----------------------------------------------
-Pre-loader Style
----------------------------------------------
-*/
 
 .js-preloader {
   position: fixed;
@@ -299,13 +290,6 @@ Pre-loader Style
 }
 
 
-
-/*
----------------------------------------------
-Most Popular Style
----------------------------------------------
-*/
-
 .most-popular {
   margin-top: 60px;
   padding: 30px;
@@ -369,11 +353,6 @@ Most Popular Style
   margin-bottom: -53px;
 }
 
-/*
----------------------------------------------
-Gaming Library Style
----------------------------------------------
-*/
 
 .gaming-library {
   margin-top: 60px;
@@ -435,11 +414,6 @@ Gaming Library Style
   margin-bottom: -53px;
 }
 
-/*
----------------------------------------------
-Footer Style
----------------------------------------------
-*/
 
 footer p {
   text-align: center;
@@ -457,12 +431,6 @@ footer p a:hover {
   color: #ec6090;
 }
 
-
-/*
----------------------------------------------
-Profile Style
----------------------------------------------
-*/
 
 .main-profile {
   border-radius: 23px;
@@ -574,11 +542,6 @@ Profile Style
   text-align: center;
 }
 
-/*
----------------------------------------------
-Responsive Style
----------------------------------------------
-*/
 
 body {
   overflow-x: hidden;

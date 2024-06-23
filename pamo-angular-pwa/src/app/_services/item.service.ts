@@ -7,7 +7,7 @@ import { Item, Comment } from '../_model/item.model';
   providedIn: 'root'
 })
 export class ItemService {
-  private apiUrl = 'http://10.0.2.2:3000';
+  private apiUrl = 'http://localhost:3000';
 
   constructor(private http: HttpClient) {}
 
