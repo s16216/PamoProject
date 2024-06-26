@@ -41,8 +41,8 @@ export class RegisterComponent {
         this.toastr.success('Potwierdz adres email');
       },
       (error) => {
-        console.error('Registration failed:', error);
-        //this.toastr.error(error.error.message)
+        //console.error('Registration failed:', error);
+        this.toastr.error(error.error.message)
       }
     );
   }

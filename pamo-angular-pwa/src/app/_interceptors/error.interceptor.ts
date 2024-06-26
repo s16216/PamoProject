@@ -98,13 +98,13 @@ export class ErrorInterceptor implements HttpInterceptor {
           }),
           catchError((refreshError) => {
             this.isRefreshing = false;
-            this.toastr.error('Something unexpected went wrong during token refresh ' + refreshError);
+            //this.toastr.error('Something unexpected went wrong during token refresh ' + refreshError);
             throw refreshError;
           })
         );
       } else {
         this.router.navigateByUrl('/login');
-        return throwError('Token refresh already in progress');
+        return throwError(error);
       }
     } else {
       this.router.navigateByUrl('/login');
