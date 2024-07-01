@@ -81,11 +81,14 @@ Follow these steps to set up the project:
     npx cap open android
     ```
 
-## Optional Configuration
+8. ***Optional Configuration:
+If you encounter issues with opening the project in Android Studio, you can set the `CAPACITOR_ANDROID_STUDIO_PATH` environment variable to the path of your `studio64.exe` file:**
+    ```bash
+    setx CAPACITOR_ANDROID_STUDIO_PATH "YourPathTo\Android Studio\bin\studio64.exe"
+    ```
 
-If you encounter issues with opening the project in Android Studio, you can set the `CAPACITOR_ANDROID_STUDIO_PATH` environment variable to the path of your `studio64.exe` file:
+## Documentation
 
+Follow these steps to run documentation 
 ```bash
-setx CAPACITOR_ANDROID_STUDIO_PATH "YourPathTo\Android Studio\bin\studio64.exe"
-
-
+ npm run docs

@@ -1,4 +1,4 @@
-import {Injectable} from '@angular/core';
+import { Injectable } from '@angular/core';
 import {
   HttpErrorResponse,
   HttpEvent,
@@ -6,23 +6,36 @@ import {
   HttpInterceptor,
   HttpRequest,
 } from '@angular/common/http';
-import {Observable, throwError} from 'rxjs';
-import {switchMap, catchError } from 'rxjs/operators';
-import {Router} from '@angular/router';
-import {ToastrService} from 'ngx-toastr';
-import {AccountService} from '../_services/account.service';
+import { Observable, throwError } from 'rxjs';
+import { switchMap, catchError } from 'rxjs/operators';
+import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
+import { AccountService } from '../_services/account.service';
 
-@Injectable()
 @Injectable()
 export class ErrorInterceptor implements HttpInterceptor {
   private isRefreshing = false;
 
+  /**
+   * Constructor to inject the necessary services.
+   *
+   * @param router - The router to navigate between routes.
+   * @param toastr - The service to display toast notifications.
+   * @param accountService - The service to manage account-related operations.
+   */
   constructor(
     private router: Router,
     private toastr: ToastrService,
     private accountService: AccountService,
   ) {}
 
+  /**
+   * Intercepts HTTP requests and handles errors accordingly.
+   *
+   * @param request - The outgoing HTTP request.
+   * @param next - The next interceptor in the chain or the backend if no other interceptors are present.
+   * @returns An Observable of the HTTP event.
+   */
   intercept(
     request: HttpRequest<unknown>,
     next: HttpHandler
@@ -34,7 +47,7 @@ export class ErrorInterceptor implements HttpInterceptor {
             case 400:
               this.handle400Error(error);
               break;
-              case 500:
+            case 500:
               this.handle500Error(error);
               break;
             case 401:
@@ -42,7 +55,6 @@ export class ErrorInterceptor implements HttpInterceptor {
             case 404:
               this.router.navigateByUrl('/not-found');
               break;
-
             default:
               this.toastr.error('Something unexpected went wrong ' + error.message);
               break;
@@ -53,6 +65,11 @@ export class ErrorInterceptor implements HttpInterceptor {
     );
   }
 
+  /**
+   * Handles HTTP 400 errors.
+   *
+   * @param error - The HTTP error response.
+   */
   private handle400Error(error: HttpErrorResponse): void {
     let errorMessage = 'Internal Server Error';
 
@@ -69,9 +86,16 @@ export class ErrorInterceptor implements HttpInterceptor {
     }
 
     this.toastr.error(errorMessage);
-    //this.router.navigateByUrl('/');
   }
 
+  /**
+   * Handles HTTP 401 errors by attempting to refresh the token or redirecting to the login page.
+   *
+   * @param request - The outgoing HTTP request.
+   * @param next - The next interceptor in the chain or the backend if no other interceptors are present.
+   * @param error - The HTTP error response.
+   * @returns An Observable of the HTTP event.
+   */
   private handle401Error(
     request: HttpRequest<unknown>,
     next: HttpHandler,
@@ -98,13 +122,12 @@ export class ErrorInterceptor implements HttpInterceptor {
           }),
           catchError((refreshError) => {
             this.isRefreshing = false;
-            this.toastr.error('Something unexpected went wrong during token refresh ' + refreshError);
             throw refreshError;
           })
         );
       } else {
         this.router.navigateByUrl('/login');
-        return throwError('Token refresh already in progress');
+        return throwError(error);
       }
     } else {
       this.router.navigateByUrl('/login');
@@ -112,6 +135,11 @@ export class ErrorInterceptor implements HttpInterceptor {
     }
   }
 
+  /**
+   * Handles HTTP 500 errors.
+   *
+   * @param error - The HTTP error response.
+   */
   private handle500Error(error: HttpErrorResponse): void {
     let errorMessage = 'Internal Server Error';
 
@@ -128,7 +156,5 @@ export class ErrorInterceptor implements HttpInterceptor {
     }
 
     this.toastr.error(errorMessage);
-    //this.router.navigateByUrl('/');
   }
 }
-
