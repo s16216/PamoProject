@@ -11,7 +11,7 @@ import { environment } from "../../environments/environment";
 export class AccountService {
 
   baseUrl: string = environment.baseUrl;
-  private currentUserSource = new BehaviorSubject<User | null>(null);
+  public currentUserSource = new BehaviorSubject<User | null>(null);
   currentUser$ = this.currentUserSource.asObservable();
 
   constructor(private http: HttpClient) {}
