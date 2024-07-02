@@ -1,5 +1,8 @@
 <div class="item-detail" *ngIf="item">
   <div class="image-gallery">
+    <div class="heading-section">
+      <h4><em>Anthill</em></h4>
+    </div>
     <button class="prev-button" (click)="previousImage()">←</button>
     <img [src]="item.detailedImages[currentImageIndex]" alt="{{item.title}}">
     <button class="next-button" (click)="nextImage()">→</button>
@@ -11,17 +14,17 @@
     <ngb-rating [max]="5" [rate]="item.rating" [readonly]="true"></ngb-rating>
   </div>
   <div class="add-comment">
-    <h3>Dodaj swoją ocenę</h3>
+    <h3>Add your comment</h3>
     <ngb-rating [max]="5" [(rate)]="newRating" [readonly]="false" (rateChange)="updateRating($event)"></ngb-rating>
     <textarea [(ngModel)]="newComment" placeholder="Dodaj komentarz"></textarea>
-    <button (click)="addComment()">Oceń</button>
+    <button (click)="addComment()">Add comment</button>
   </div>
   <div class="comments">
-    <h3>Komentarze</h3>
+    <h3>Comments</h3>
     <div *ngFor="let comment of displayedComments">
       <ngb-rating [max]="5" [rate]="comment.rating" [readonly]="true"></ngb-rating>
       <p>{{comment.text}}</p>
     </div>
-    <button *ngIf="item.comments.length > displayedComments.length" (click)="showMoreComments()">Pokaż więcej</button>
+    <button *ngIf="item.comments.length > displayedComments.length" (click)="showMoreComments()">Show more</button>
   </div>
 </div>

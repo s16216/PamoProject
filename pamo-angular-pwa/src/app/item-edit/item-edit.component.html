@@ -1,5 +1,8 @@
 <div class="item-detail" *ngIf="item">
   <div class="image-gallery">
+    <div class="heading-section">
+      <h4><em>Edit Anthill</em></h4>
+    </div>
     <button class="prev-button" (click)="previousImage()">←</button>
     <img [src]="item.detailedImages[currentImageIndex]" alt="{{item.title}}">
     <button class="next-button" (click)="nextImage()">→</button>
@@ -8,24 +11,24 @@
   <div *ngIf="!editMode">
     <h2>{{item.title}}</h2>
     <p>{{item.description}}</p>
-    <button (click)="toggleEditMode()">Edytuj</button>
+    <button (click)="toggleEditMode()">Edit</button>
   </div>
 
   <div *ngIf="editMode">
     <input type="text" [(ngModel)]="item.title" placeholder="Nazwa itemu">
     <textarea [(ngModel)]="item.description" placeholder="Opis itemu"></textarea>
-    <button (click)="saveItemDetails()">Zapisz</button>
-    <button (click)="toggleEditMode()">Anuluj</button>
+    <button (click)="saveItemDetails()">Save</button>
+    <button (click)="toggleEditMode()">Cancel</button>
   </div>
 
   <div class="image-management" *ngIf="editMode">
-    <h3>Zarządzanie zdjęciami</h3>
+    <h3>Manage your photos</h3>
     <div *ngFor="let image of item.detailedImages; let i = index">
       <img [src]="image" alt="Detailed image {{i + 1}}">
       <button (click)="removeImage(i)">Usuń</button>
     </div>
     <input type="text" [(ngModel)]="newImageUrl" placeholder="URL nowego zdjęcia">
-    <button (click)="addImage()">Dodaj zdjęcie</button>
+    <button (click)="addImage()">Add photo</button>
     <button (click)="addImageFromCamera()">Aparat</button>
   </div>
 
@@ -34,11 +37,11 @@
     <ngb-rating [max]="5" [rate]="item.rating" [readonly]="true"></ngb-rating>
   </div>
   <div class="comments">
-    <h3>Komentarze</h3>
+    <h3>Comments</h3>
     <div *ngFor="let comment of displayedComments">
       <ngb-rating [max]="5" [rate]="comment.rating" [readonly]="true"></ngb-rating>
       <p>{{comment.text}}</p>
     </div>
-    <button *ngIf="item.comments.length > displayedComments.length" (click)="showMoreComments()">Pokaż więcej</button>
+    <button *ngIf="item.comments.length > displayedComments.length" (click)="showMoreComments()">Show more</button>
   </div>
 </div>

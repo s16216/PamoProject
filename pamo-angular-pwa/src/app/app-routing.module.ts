@@ -23,7 +23,7 @@ const routes: Routes = [
   // },
   { path: '', component: ItemListComponent },
   { path: 'item/:id', component: ItemDetailComponent },
-  { path: 'user/item/:userId', component: UserItemListComponent },
+  { path: 'user/item', component: UserItemListComponent },
   { path: 'edit/item/:id', component: ItemEditComponent },
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},

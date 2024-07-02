@@ -16,11 +16,15 @@ export class ItemListComponent implements OnInit {
   ngOnInit(): void {
     this.itemService.getItems().subscribe(items => {
       this.items = items;
-      console.log(this.items); // Dodaj ten wiersz, aby sprawdzić, czy itemy są pobierane
+      console.log(this.items);
     });
   }
 
+  /**
+   * Navigates to the detail view of the selected item.
+   * @param id - The ID of the item to view.
+   */
   goToDetail(id: number): void {
-    this.router.navigate(['/item', id]); // ma być /item
+    this.router.navigate(['/item', id]); // should be /item
   }
 }

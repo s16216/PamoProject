@@ -10,7 +10,7 @@ import { Item } from '../_model/item.model';
 })
 export class UserItemListComponent implements OnInit {
   items: Item[] = [];
-  @Input() ownerId: number = 1; // Dodanie ownerId jako Input
+  @Input() ownerId: number = 2;
 
   constructor(private itemService: ItemService, private router: Router) { }
 
@@ -20,6 +20,10 @@ export class UserItemListComponent implements OnInit {
     }
   }
 
+  /**
+   * Navigates to the edit view of the selected item.
+   * @param id - The ID of the item to edit.
+   */
   goToDetail(id: number): void {
     this.router.navigate(['/edit/item', id]);
   }
