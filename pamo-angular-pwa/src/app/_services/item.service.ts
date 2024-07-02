@@ -7,7 +7,7 @@ import { Item, Comment } from '../_model/item.model';
   providedIn: 'root'
 })
 export class ItemService {
-  private apiUrl = 'https://localhost:3000';
+  private apiUrl = 'https://jsitemapi.azurewebsites.net';
 
   constructor(private http: HttpClient) {}
 
